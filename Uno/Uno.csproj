@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5CD289CC-8B51-44E1-8CC8-E45A6E1AE129}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Uno</RootNamespace>
+    <AssemblyName>Uno</AssemblyName>
+    <ApplicationIcon>uno.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Source\Data\Data.cs" />
+    <Compile Include="Source\Forms\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Game\Arguments.cs" />
+    <Compile Include="Source\Game\ImageHelpers.cs" />
+    <Compile Include="Source\Game\MemoryCacheWrapper.cs" />
+    <Compile Include="Source\Game\UnoCards.cs" />
+    <Compile Include="Source\Game\UnoColours.cs" />
+    <Compile Include="Source\Tools\Animate.cs" />
+    <Compile Include="Source\Game\Card.cs" />
+    <Compile Include="Source\Game\Cards.cs" />
+    <Compile Include="Source\Game\OpenDeck.cs" />
+    <Compile Include="Source\Game\GameData.cs" />
+    <Compile Include="Source\Game\Deck.cs" />
+    <Compile Include="Source\Forms\frmColorSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\frmColorSelection.Designer.cs">
+      <DependentUpon>frmColorSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\frmUno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\frmUno.Designer.cs">
+      <DependentUpon>frmUno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\frmUserData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\frmUserData.Designer.cs">
+      <DependentUpon>frmUserData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Game\Logic.cs" />
+    <Compile Include="Source\Game\Painter.cs" />
+    <Compile Include="Source\Game\Player.cs" />
+    <Compile Include="Source\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Source\Forms\frmAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\frmColorSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmColorSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\frmUno.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmUno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\frmUserData.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmUserData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Source\Game\Game.cs" />
+    <Compile Include="Source\Tools\Logger.cs" />
+    <Compile Include="Source\Tools\LoggingLevel.cs" />
+    <Compile Include="Source\Tools\Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\+2b.png" />
+    <EmbeddedResource Include="Images\+2g.png" />
+    <EmbeddedResource Include="Images\+2r.png" />
+    <EmbeddedResource Include="Images\+2y.png" />
+    <EmbeddedResource Include="Images\+4.png" />
+    <EmbeddedResource Include="Images\0b.png" />
+    <EmbeddedResource Include="Images\0g.png" />
+    <EmbeddedResource Include="Images\0r.png" />
+    <EmbeddedResource Include="Images\0y.png" />
+    <EmbeddedResource Include="Images\1b.png" />
+    <EmbeddedResource Include="Images\1g.png" />
+    <EmbeddedResource Include="Images\1r.png" />
+    <EmbeddedResource Include="Images\1y.png" />
+    <EmbeddedResource Include="Images\2b.png" />
+    <EmbeddedResource Include="Images\2g.png" />
+    <EmbeddedResource Include="Images\2r.png" />
+    <EmbeddedResource Include="Images\2y.png" />
+    <EmbeddedResource Include="Images\3b.png" />
+    <EmbeddedResource Include="Images\3g.png" />
+    <EmbeddedResource Include="Images\3r.png" />
+    <EmbeddedResource Include="Images\3y.png" />
+    <EmbeddedResource Include="Images\4b.png" />
+    <EmbeddedResource Include="Images\4g.png" />
+    <EmbeddedResource Include="Images\4r.png" />
+    <EmbeddedResource Include="Images\4y.png" />
+    <EmbeddedResource Include="Images\5b.png" />
+    <EmbeddedResource Include="Images\5g.png" />
+    <EmbeddedResource Include="Images\5r.png" />
+    <EmbeddedResource Include="Images\5y.png" />
+    <EmbeddedResource Include="Images\6b.png" />
+    <EmbeddedResource Include="Images\6g.png" />
+    <EmbeddedResource Include="Images\6r.png" />
+    <EmbeddedResource Include="Images\6y.png" />
+    <EmbeddedResource Include="Images\7b.png" />
+    <EmbeddedResource Include="Images\7g.png" />
+    <EmbeddedResource Include="Images\7r.png" />
+    <EmbeddedResource Include="Images\7y.png" />
+    <EmbeddedResource Include="Images\8b.png" />
+    <EmbeddedResource Include="Images\8g.png" />
+    <EmbeddedResource Include="Images\8r.png" />
+    <EmbeddedResource Include="Images\8y.png" />
+    <EmbeddedResource Include="Images\9b.png" />
+    <EmbeddedResource Include="Images\9g.png" />
+    <EmbeddedResource Include="Images\9r.png" />
+    <EmbeddedResource Include="Images\9y.png" />
+    <EmbeddedResource Include="Images\back.png" />
+    <EmbeddedResource Include="Images\revb.png" />
+    <EmbeddedResource Include="Images\revg.png" />
+    <EmbeddedResource Include="Images\revr.png" />
+    <EmbeddedResource Include="Images\revy.png" />
+    <EmbeddedResource Include="Images\skipb.png" />
+    <EmbeddedResource Include="Images\skipg.png" />
+    <EmbeddedResource Include="Images\skipr.png" />
+    <EmbeddedResource Include="Images\skipy.png" />
+    <EmbeddedResource Include="Images\wild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="uno.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
