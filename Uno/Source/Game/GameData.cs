@@ -1,18 +1,15 @@
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 
 namespace Uno
 {
+
     class GameData
     {
-        //public static string[] CardImageList = new String[55];
-        public static Dictionary<int, Image> CardImageList = new Dictionary<int, Image>(55);
-
         public static Player Player = new Player();
         public static Player Opponnent = new Player();
 
-        public static Deck Deck = new Deck();
+        public static UnoDeck Deck = new UnoDeck();
         public static OpenDeck OpenCards = new OpenDeck();
 
         public static Card BackFacingCard;
@@ -95,7 +92,6 @@ namespace Uno
 
             Logger.Write(LoggingLevel.LogDebug, "form = " + Form + " ; NULL? " + (Form == null? "yes": "no"));
 
-            BuildImageList();
             BackFacingCard = new Card(UnoCards.Back, 0, UnoColours.NoColor);
 
             Logger.FuncInit("GameData.InitData");
@@ -131,83 +127,6 @@ namespace Uno
             }
             Logger.Write(LoggingLevel.LogGeneral, "The log level set is = " + Data.LogLevel);
             Logger.FuncExit("GameData.readConfig");
-        }
-
-        private static void BuildImageList()
-        {
-            using (var imageHelper = new ImageHelpers())
-            {
-                var i = 0;
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.back.png")); //0
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.+4.png")); //1
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.wild.png")); //2
-
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.+2b.png"));  //3
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.skipb.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.revb.png"));
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.0b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.1b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.2b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.3b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.4b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.5b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.6b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.7b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.8b.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.9b.png")); //15
-
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.+2g.png")); //16
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.skipg.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.revg.png"));
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.0g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.1g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.2g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.3g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.4g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.5g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.6g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.7g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.8g.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.9g.png")); //28
-
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.+2r.png")); //29
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.skipr.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.revr.png"));
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.0r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.1r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.2r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.3r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.4r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.5r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.6r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.7r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.8r.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.9r.png")); //41
-
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.+2y.png")); //42
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.skipy.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.revy.png"));
-
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.0y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.1y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.2y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.3y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.4y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.5y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.6y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.7y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.8y.png"));
-                CardImageList.Add(i++, imageHelper.LoadEmbededImage("Uno.Images.9y.png")); //54
-            }
         }
     }
 }

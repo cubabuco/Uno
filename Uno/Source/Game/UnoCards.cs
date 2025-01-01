@@ -2,9 +2,22 @@ namespace Uno
 {
     public enum UnoCards
     {
-        Back = -1,
-        Zero = 0, One, Two, Three, Four, Five, Six, Seven, Eight, Nine,
-        Plus2, Skip, Reverse,
-        WildCard, DrawTwo, DrawFour
+        Zero = 0, 
+        One = 1,
+        Two = 2,
+        Three = 3,
+        Four = 4,
+        Five = 5,
+        Six = 6,
+        Seven = 7,
+        Eight = 8,
+        Nine = 9,
+        Plus2 = 10,
+        Skip = 11,
+        Reverse = 12,
+        WildCard = 13,
+        DrawTwo = 14,
+        DrawFour = 15,
+        Back = 16,
     };
 }

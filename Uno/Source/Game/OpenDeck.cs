@@ -16,16 +16,6 @@ namespace Uno
             GameData.Form.lblColorRunning.Text = "";
         }
 
-        //public string GetDeck()
-        //{
-        //    string cards_debug = "";
-        //    foreach (Card card in this)
-        //    {
-        //        cards_debug += card.ToString() + "\r\n";
-        //    }
-        //    return cards_debug;
-        //}
-
         public Cards GetCards()
         {
             var cards = new Cards();

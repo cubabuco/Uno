@@ -48,7 +48,7 @@
     <AssemblyName>Uno</AssemblyName>
     <ApplicationIcon>uno.ico</ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -69,6 +69,7 @@
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,16 +111,19 @@
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Game\Arguments.cs" />
+    <Compile Include="Source\Game\CardImages.cs" />
+    <Compile Include="Source\Game\CardImagesResources.cs" />
     <Compile Include="Source\Game\ImageHelpers.cs" />
     <Compile Include="Source\Game\MemoryCacheWrapper.cs" />
+    <Compile Include="Source\Game\MyArray.cs" />
     <Compile Include="Source\Game\UnoCards.cs" />
     <Compile Include="Source\Game\UnoColours.cs" />
+    <Compile Include="Source\Game\UnoDeck.cs" />
     <Compile Include="Source\Tools\Animate.cs" />
     <Compile Include="Source\Game\Card.cs" />
     <Compile Include="Source\Game\Cards.cs" />
     <Compile Include="Source\Game\OpenDeck.cs" />
     <Compile Include="Source\Game\GameData.cs" />
-    <Compile Include="Source\Game\Deck.cs" />
     <Compile Include="Source\Forms\frmColorSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,51 +189,51 @@
     <Compile Include="Source\Tools\Tools.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Images\+2b.png" />
-    <EmbeddedResource Include="Images\+2g.png" />
-    <EmbeddedResource Include="Images\+2r.png" />
-    <EmbeddedResource Include="Images\+2y.png" />
-    <EmbeddedResource Include="Images\+4.png" />
-    <EmbeddedResource Include="Images\0b.png" />
-    <EmbeddedResource Include="Images\0g.png" />
-    <EmbeddedResource Include="Images\0r.png" />
-    <EmbeddedResource Include="Images\0y.png" />
-    <EmbeddedResource Include="Images\1b.png" />
-    <EmbeddedResource Include="Images\1g.png" />
-    <EmbeddedResource Include="Images\1r.png" />
-    <EmbeddedResource Include="Images\1y.png" />
-    <EmbeddedResource Include="Images\2b.png" />
-    <EmbeddedResource Include="Images\2g.png" />
-    <EmbeddedResource Include="Images\2r.png" />
-    <EmbeddedResource Include="Images\2y.png" />
-    <EmbeddedResource Include="Images\3b.png" />
-    <EmbeddedResource Include="Images\3g.png" />
-    <EmbeddedResource Include="Images\3r.png" />
-    <EmbeddedResource Include="Images\3y.png" />
-    <EmbeddedResource Include="Images\4b.png" />
-    <EmbeddedResource Include="Images\4g.png" />
-    <EmbeddedResource Include="Images\4r.png" />
-    <EmbeddedResource Include="Images\4y.png" />
-    <EmbeddedResource Include="Images\5b.png" />
-    <EmbeddedResource Include="Images\5g.png" />
-    <EmbeddedResource Include="Images\5r.png" />
-    <EmbeddedResource Include="Images\5y.png" />
-    <EmbeddedResource Include="Images\6b.png" />
-    <EmbeddedResource Include="Images\6g.png" />
-    <EmbeddedResource Include="Images\6r.png" />
-    <EmbeddedResource Include="Images\6y.png" />
-    <EmbeddedResource Include="Images\7b.png" />
-    <EmbeddedResource Include="Images\7g.png" />
-    <EmbeddedResource Include="Images\7r.png" />
-    <EmbeddedResource Include="Images\7y.png" />
-    <EmbeddedResource Include="Images\8b.png" />
-    <EmbeddedResource Include="Images\8g.png" />
-    <EmbeddedResource Include="Images\8r.png" />
-    <EmbeddedResource Include="Images\8y.png" />
-    <EmbeddedResource Include="Images\9b.png" />
-    <EmbeddedResource Include="Images\9g.png" />
-    <EmbeddedResource Include="Images\9r.png" />
-    <EmbeddedResource Include="Images\9y.png" />
+    <EmbeddedResource Include="Images\draw2b.png" />
+    <EmbeddedResource Include="Images\draw2g.png" />
+    <EmbeddedResource Include="Images\draw2r.png" />
+    <EmbeddedResource Include="Images\draw2y.png" />
+    <EmbeddedResource Include="Images\draw4.png" />
+    <EmbeddedResource Include="Images\b0.png" />
+    <EmbeddedResource Include="Images\g0.png" />
+    <EmbeddedResource Include="Images\r0.png" />
+    <EmbeddedResource Include="Images\y0.png" />
+    <EmbeddedResource Include="Images\b1.png" />
+    <EmbeddedResource Include="Images\g1.png" />
+    <EmbeddedResource Include="Images\r1.png" />
+    <EmbeddedResource Include="Images\y1.png" />
+    <EmbeddedResource Include="Images\b2.png" />
+    <EmbeddedResource Include="Images\g2.png" />
+    <EmbeddedResource Include="Images\r2.png" />
+    <EmbeddedResource Include="Images\y2.png" />
+    <EmbeddedResource Include="Images\b3.png" />
+    <EmbeddedResource Include="Images\g3.png" />
+    <EmbeddedResource Include="Images\r3.png" />
+    <EmbeddedResource Include="Images\y3.png" />
+    <EmbeddedResource Include="Images\b4.png" />
+    <EmbeddedResource Include="Images\g4.png" />
+    <EmbeddedResource Include="Images\r4.png" />
+    <EmbeddedResource Include="Images\y4.png" />
+    <EmbeddedResource Include="Images\b5.png" />
+    <EmbeddedResource Include="Images\g5.png" />
+    <EmbeddedResource Include="Images\r5.png" />
+    <EmbeddedResource Include="Images\y5.png" />
+    <EmbeddedResource Include="Images\b6.png" />
+    <EmbeddedResource Include="Images\g6.png" />
+    <EmbeddedResource Include="Images\r6.png" />
+    <EmbeddedResource Include="Images\y6.png" />
+    <EmbeddedResource Include="Images\b7.png" />
+    <EmbeddedResource Include="Images\g7.png" />
+    <EmbeddedResource Include="Images\r7.png" />
+    <EmbeddedResource Include="Images\y7.png" />
+    <EmbeddedResource Include="Images\b8.png" />
+    <EmbeddedResource Include="Images\g8.png" />
+    <EmbeddedResource Include="Images\r8.png" />
+    <EmbeddedResource Include="Images\y8.png" />
+    <EmbeddedResource Include="Images\b9.png" />
+    <EmbeddedResource Include="Images\g9.png" />
+    <EmbeddedResource Include="Images\r9.png" />
+    <EmbeddedResource Include="Images\y9.png" />
     <EmbeddedResource Include="Images\back.png" />
     <EmbeddedResource Include="Images\revb.png" />
     <EmbeddedResource Include="Images\revg.png" />

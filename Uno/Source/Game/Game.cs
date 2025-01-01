@@ -71,7 +71,7 @@ namespace Uno
 
         private static void ClearUp()
         {
-            GameData.Deck.Clear();
+            //GameData.Deck.Clear();
             GameData.OpenCards.Clear();
 
             GameData.Player.Clear();
@@ -88,7 +88,7 @@ namespace Uno
 
         private static void Deal()
         {
-            GameData.Deck.CreateDeck();
+            //GameData.Deck.CreateDeck();
             GameData.Deck.Shuffle();
         }
 

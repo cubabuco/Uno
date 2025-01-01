@@ -251,7 +251,7 @@ namespace Uno
 
         private static void AddCardToOpponent()
         {
-            if (GameData.Deck.Count > 0)
+            if (!GameData.Deck.IsDeckEmpty())
             {
                 Animate.Move(GameData.BackFacingCard,
                              new Point(GameData.LocSlot.Location.X + (GameData.LocSlot.Width - GameData.BackFacingCard.CardImage.Width) / 2,
@@ -278,7 +278,8 @@ namespace Uno
             //if there are cards open on the deck, and they should be more than 1!!
             if (GameData.OpenCards.Count > 1)
             {
-                GameData.Deck.SetCards(GameData.OpenCards.GetCards());
+                //GameData.Deck.SetCards(GameData.OpenCards.GetCards());
+                GameData.Deck.Shuffle();
                 GameData.OpenCards.Clear();
                 GameData.OpenCards.Add(GameData.Deck.GetACard());
             }
@@ -459,7 +460,7 @@ namespace Uno
 
         public static void AddCardToPlayer()
         {
-            if (GameData.Deck.Count > 0)
+            if (!GameData.Deck.IsDeckEmpty())
             {
                 Animate.Move(GameData.BackFacingCard,
                             new Point(GameData.LocSlot.Location.X + (GameData.LocSlot.Width - GameData.BackFacingCard.CardImage.Width) / 2,
