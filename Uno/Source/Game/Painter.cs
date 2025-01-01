@@ -50,7 +50,7 @@ namespace Uno
 
             var destRect = new Rectangle(GameData.LocSlot.Left, GameData.LocSlot.Top, img.Width, img.Height);
             destRect.Offset((GameData.LocSlot.Width - img.Width) / 2, (GameData.LocSlot.Height - img.Height) / 2);
-
+            
             e.Graphics.DrawImage(img, destRect);
         }
 

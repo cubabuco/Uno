@@ -51,6 +51,12 @@ namespace Uno
             //////////////////////////////////////////////////////////////////////////
 
             //take assembly backup of the screen
+            if(_layoutBackBmp != null)
+            {
+                _layoutBackBmp.Dispose();
+                _layoutBackBmp = null;
+            }
+
             _layoutBackBmp = new Bitmap(GameData.Form.tableLayoutPanel.ClientRectangle.Width,
                                         GameData.Form.tableLayoutPanel.ClientRectangle.Height);
             GameData.Form.tableLayoutPanel.DrawToBitmap(_layoutBackBmp,
@@ -110,28 +116,28 @@ namespace Uno
         {
             while (!_animationFnished)
             {
-                var tempBmp = new Bitmap(_layoutBackBmp);
-                var graphicsBmp = Graphics.FromImage(tempBmp);
-
-                //paint onto the screen the new image
-                graphicsBmp.DrawImage(_cardImage, _destRect);
-
-                //////////////////////////////////////////////////////////////////////////
-
-                //move to new location
-                _destRect.Offset(_stepX, _stepY);
-
-                _dx -= Step;
-                if (_dx < Step)
+                using (var tempBmp = new Bitmap(_layoutBackBmp)) 
+                using(var graphicsBmp = Graphics.FromImage(tempBmp))
                 {
-                    _animationFnished = true;
+                    //paint onto the screen the new image
+                    graphicsBmp.DrawImage(_cardImage, _destRect);
+
+                    //////////////////////////////////////////////////////////////////////////
+
+                    //move to new location
+                    _destRect.Offset(_stepX, _stepY);
+
+                    _dx -= Step;
+                    if (_dx < Step)
+                    {
+                        _animationFnished = true;
+                    }
+
+                    //////////////////////////////////////////////////////////////////////////
+
+                    //finally, paint the whole picture
+                    _graphicsTable.DrawImage(tempBmp, 0, 0);
                 }
-
-                //////////////////////////////////////////////////////////////////////////
-
-                //finally, paint the whole picture
-                _graphicsTable.DrawImage(tempBmp, 0, 0);
-
             } //while
         }
 
@@ -144,6 +150,8 @@ namespace Uno
             {
                 _graphicsTable.Dispose();
                 _graphicsTable = null;
+                _layoutBackBmp.Dispose();
+                _layoutBackBmp = null;
             }
         }
     }

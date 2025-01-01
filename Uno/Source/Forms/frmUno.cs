@@ -63,8 +63,10 @@ namespace Uno
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new FrmAbout();
-            frm.ShowDialog();
+            using (var frm = new FrmAbout())
+            {
+                frm.ShowDialog();
+            }
         }
 
         private void frmUno_Load(object sender, EventArgs e)

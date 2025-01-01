@@ -19,6 +19,25 @@ namespace Uno
             {
                 components.Dispose();
             }
+
+            tableLayoutPanel.Dispose();
+            logoPictureBox.Dispose();
+            labelProductName.Dispose();
+            labelVersion.Dispose();
+            labelCopyright.Dispose();
+            textBoxDescription.Dispose();
+            okButton.Dispose();
+            linkMail.Dispose();
+
+            tableLayoutPanel = null;
+            logoPictureBox = null;
+            labelProductName = null;
+            labelVersion = null;
+            labelCopyright = null;
+            textBoxDescription = null;
+            okButton = null;
+            linkMail = null;
+
             base.Dispose(disposing);
         }
 

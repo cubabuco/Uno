@@ -20,6 +20,43 @@ namespace Uno
             {
                 components.Dispose();
             }
+
+            menuStrip?.Dispose();
+            fileToolStripMenuItem?.Dispose();
+            newToolStripMenuItem?.Dispose();
+            exitToolStripMenuItem?.Dispose();
+            helpToolStripMenuItem?.Dispose();
+            aboutToolStripMenuItem?.Dispose();
+            tableLayoutPanel?.Dispose();
+            outerTableLayout?.Dispose();
+            tableSidePanel?.Dispose();
+            lblScore?.Dispose();
+            lblPlayerScoreHeader?.Dispose();
+            lblOpponentHeader?.Dispose();
+            lblColorRunningHeader?.Dispose();
+            btnPass?.Dispose();
+            lblOpponentScore?.Dispose();
+            lblPlayerScore?.Dispose();
+            lblColorRunning?.Dispose();
+
+            menuStrip = null;
+            fileToolStripMenuItem = null;
+            newToolStripMenuItem = null;
+            exitToolStripMenuItem = null;
+            helpToolStripMenuItem = null;
+            aboutToolStripMenuItem = null;
+            tableLayoutPanel = null;
+            outerTableLayout = null;
+            tableSidePanel = null;
+            lblScore = null;
+            lblPlayerScoreHeader = null;
+            lblOpponentHeader = null;
+            lblColorRunningHeader = null;
+            btnPass = null;
+            lblOpponentScore = null;
+            lblPlayerScore = null;
+            lblColorRunning = null;
+
             base.Dispose(disposing);
         }
 

@@ -6,7 +6,7 @@ namespace Uno
 {
     public static class CardImagesResources
     {
-        public static Dictionary<CardImages, Image> CardImageList = new Dictionary<CardImages, Image>(55);
+        public static Dictionary<CardImages, Bitmap> CardImageList = new Dictionary<CardImages, Bitmap>(55);
 
         static CardImagesResources()
         {
