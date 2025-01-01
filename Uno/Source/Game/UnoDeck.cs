@@ -15,9 +15,6 @@ namespace Uno
 
             do 
             {
-                var imageListOffset = 1;
-                var color = 0;
-
                 // 2 "+4" cards
                 // 2 "+4" cards
                 this[deckCounter++] = new Card(UnoCards.DrawFour, CardImages.draw4, UnoColours.NoColor);

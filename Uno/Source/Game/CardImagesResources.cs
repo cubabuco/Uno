@@ -12,7 +12,6 @@ namespace Uno
         {
             using (var imageHelper = new ImageHelpers())
             {
-                var i = 0;
                 foreach (int y in Enum.GetValues(typeof(CardImages)))
                 {
                     CardImageList.Add((CardImages)y, imageHelper.LoadEmbededImage($"Uno.Images.{Enum.GetName(typeof(CardImages), y)}.png")); //0

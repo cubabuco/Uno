@@ -59,7 +59,13 @@ namespace Uno
             //////////////////////////////////////////////////////////////////////////
 
             //get the resized image of the card
-            _cardImage = Tools.ResizedImage(_card.CardImage, GameData.LocSlot.Width, GameData.LocSlot.Height);
+            if (_cardImage != null)
+            {
+                _cardImage.Dispose();
+                _cardImage = null;
+            }
+
+            _cardImage = Tools.ResizedImage(CardImagesResources.CardImageList[_card.ImageListOffset], GameData.LocSlot.Width, GameData.LocSlot.Height);
 
             //////////////////////////////////////////////////////////////////////////
 
@@ -84,6 +90,12 @@ namespace Uno
 
             //////////////////////////////////////////////////////////////////////////
             _destRect = new Rectangle(sourceX, sourceY, _cardImage.Width, _cardImage.Height);
+
+            if (_graphicsTable != null)
+            {
+                _graphicsTable.Dispose();
+                _graphicsTable = null;
+            }
 
             _graphicsTable = GameData.Form.tableLayoutPanel.CreateGraphics();
 
@@ -127,7 +139,7 @@ namespace Uno
         /// Cleans up after the animation is over
         /// </summary>
         private static void PostAnimate()
-        {
+        {   
             if (_graphicsTable != null)
             {
                 _graphicsTable.Dispose();

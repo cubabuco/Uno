@@ -4,6 +4,8 @@ namespace Uno
 {
     class OpenDeck : ArrayList
     {
+        public OpenDeck() : base(108) { }
+
         public void Add(Card c)
         {
             base.Add(c);

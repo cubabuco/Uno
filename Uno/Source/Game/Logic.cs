@@ -241,7 +241,7 @@ namespace Uno
 
             Animate.Move(nextCard,
                         GameData.LocOpponent.Left, GameData.LocOpponent.Top,
-                        GameData.LocBoard.Left + (GameData.LocBoard.Width - nextCard.CardImage.Width) / 2, GameData.LocBoard.Top);
+                        GameData.LocBoard.Left + (GameData.LocBoard.Width - CardImagesResources.CardImageList[nextCard.ImageListOffset].Width) / 2, GameData.LocBoard.Top);
 
             GameData.OpenCards.Add(nextCard);
 
@@ -254,7 +254,7 @@ namespace Uno
             if (!GameData.Deck.IsDeckEmpty())
             {
                 Animate.Move(GameData.BackFacingCard,
-                             new Point(GameData.LocSlot.Location.X + (GameData.LocSlot.Width - GameData.BackFacingCard.CardImage.Width) / 2,
+                             new Point(GameData.LocSlot.Location.X + (GameData.LocSlot.Width - CardImagesResources.CardImageList[GameData.BackFacingCard.ImageListOffset].Width) / 2,
                                                       GameData.LocSlot.Location.Y),
                              GameData.LocOpponent.Location);
 
@@ -333,7 +333,7 @@ namespace Uno
         {
             var num = -1;
 
-            var fitSize = Tools.BestFitSize(GameData.BackFacingCard.CardImage.Size, GameData.LocPlayer.Size);
+            var fitSize = Tools.BestFitSize(CardImagesResources.CardImageList[GameData.BackFacingCard.ImageListOffset].Size, GameData.LocPlayer.Size);
             var overlappedWidth = fitSize.Width / GameData.OverLappedRegionWidthRatio;
 
             var maxWidthOfCards = (GameData.Player.Cards.Count - 1) * overlappedWidth + fitSize.Width;
@@ -451,7 +451,7 @@ namespace Uno
 
             Animate.Move(nextCard,
                         GameData.LocPlayer.Left, GameData.LocPlayer.Top,
-                        GameData.LocBoard.Left + (GameData.LocBoard.Width - nextCard.CardImage.Width) / 2, GameData.LocBoard.Top);
+                        GameData.LocBoard.Left + (GameData.LocBoard.Width - CardImagesResources.CardImageList[nextCard.ImageListOffset].Width) / 2, GameData.LocBoard.Top);
 
             GameData.OpenCards.Add(nextCard);
 
@@ -463,7 +463,7 @@ namespace Uno
             if (!GameData.Deck.IsDeckEmpty())
             {
                 Animate.Move(GameData.BackFacingCard,
-                            new Point(GameData.LocSlot.Location.X + (GameData.LocSlot.Width - GameData.BackFacingCard.CardImage.Width) / 2,
+                            new Point(GameData.LocSlot.Location.X + (GameData.LocSlot.Width - CardImagesResources.CardImageList[GameData.BackFacingCard.ImageListOffset].Width) / 2,
                                                      GameData.LocSlot.Location.Y),
                             GameData.LocPlayer.Location);
 

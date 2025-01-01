@@ -46,7 +46,7 @@ namespace Uno
         /// <param name="e"></param>
         private static void PaintSourceDeck(object sender, PaintEventArgs e)
         {
-            var img = Tools.ResizedImage(GameData.BackFacingCard.CardImage, GameData.LocSlot.Width, GameData.LocSlot.Height);
+            var img = Tools.ResizedImage(CardImagesResources.CardImageList[GameData.BackFacingCard.ImageListOffset], GameData.LocSlot.Width, GameData.LocSlot.Height);
 
             var destRect = new Rectangle(GameData.LocSlot.Left, GameData.LocSlot.Top, img.Width, img.Height);
             destRect.Offset((GameData.LocSlot.Width - img.Width) / 2, (GameData.LocSlot.Height - img.Height) / 2);
@@ -79,7 +79,7 @@ namespace Uno
 
             if (GameData.Opponnent.Cards.Count > 0)
             {
-                var img = Tools.ResizedImage(GameData.BackFacingCard.CardImage, GameData.LocOpponent.Width, GameData.LocOpponent.Height);
+                var img = Tools.ResizedImage(CardImagesResources.CardImageList[GameData.BackFacingCard.ImageListOffset], GameData.LocOpponent.Width, GameData.LocOpponent.Height);
 
                 var overlappedWidth = img.Width / GameData.OverLappedRegionWidthRatio;
 
@@ -98,14 +98,14 @@ namespace Uno
 
             if (GameData.Opponnent.Cards.Count > 0)
             {
-                var img = Tools.ResizedImage(GameData.BackFacingCard.CardImage, GameData.LocOpponent.Width, GameData.LocOpponent.Height);
+                var img = Tools.ResizedImage(CardImagesResources.CardImageList[GameData.BackFacingCard.ImageListOffset], GameData.LocOpponent.Width, GameData.LocOpponent.Height);
 
                 var overlappedWidth = img.Width / GameData.OverLappedRegionWidthRatio;
 
                 var destRect = new Rectangle(GameData.LocOpponent.Left, GameData.LocOpponent.Top, img.Width, img.Height);
                 for (var i = 0; i < GameData.Opponnent.Cards.Count; ++i)
                 {
-                    var localImg = Tools.ResizedImage(GameData.Opponnent.Cards[i].CardImage,
+                    var localImg = Tools.ResizedImage(CardImagesResources.CardImageList[GameData.Opponnent.Cards[i].ImageListOffset],
                                                         GameData.LocOpponent.Width, GameData.LocOpponent.Height);
                     gPanel.DrawImage(localImg, destRect);
                     destRect.Offset(overlappedWidth, 0);
@@ -124,14 +124,14 @@ namespace Uno
 
             if (GameData.Player.Cards.Count > 0)
             {
-                var img = Tools.ResizedImage(GameData.BackFacingCard.CardImage, GameData.LocPlayer.Width, GameData.LocPlayer.Height);
+                var img = Tools.ResizedImage(CardImagesResources.CardImageList[GameData.BackFacingCard.ImageListOffset], GameData.LocPlayer.Width, GameData.LocPlayer.Height);
 
                 var overlappedWidth = img.Width / GameData.OverLappedRegionWidthRatio;
 
                 var destRect = new Rectangle(GameData.LocPlayer.Left, GameData.LocPlayer.Top, img.Width, img.Height);
                 for (var i = 0; i < GameData.Player.Cards.Count; ++i)
                 {
-                    var localImg = Tools.ResizedImage(GameData.Player.Cards[i].CardImage, GameData.LocPlayer.Width, GameData.LocPlayer.Height);
+                    var localImg = Tools.ResizedImage(CardImagesResources.CardImageList[GameData.Player.Cards[i].ImageListOffset], GameData.LocPlayer.Width, GameData.LocPlayer.Height);
                     gPanel.DrawImage(localImg, destRect);
                     destRect.Offset(overlappedWidth, 0);
                 }
@@ -149,7 +149,7 @@ namespace Uno
             {
                 var card = GameData.OpenCards[GameData.OpenCards.Count - 1];
 
-                var img = Tools.ResizedImage(card.CardImage, GameData.LocBoard.Width, GameData.LocBoard.Height);
+                var img = Tools.ResizedImage(CardImagesResources.CardImageList[card.ImageListOffset], GameData.LocBoard.Width, GameData.LocBoard.Height);
 
                 var destRect = new Rectangle(GameData.LocBoard.Left, GameData.LocBoard.Top, img.Width, img.Height);
                 destRect.Offset((GameData.LocBoard.Width - img.Width) / 2, (GameData.LocBoard.Height - img.Height) / 2);

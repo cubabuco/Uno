@@ -9,16 +9,12 @@ namespace Uno
         public UnoColours Color; 
         // pointer to image in imageList
         public CardImages ImageListOffset; 
-        public Image CardImage;
-
-
 
         public Card(UnoCards num, CardImages off, UnoColours col)
         {
             Number = num;
             ImageListOffset = off;
             Color = col;
-            CardImage = CardImagesResources.CardImageList[off];
         }
 
         public override string ToString()

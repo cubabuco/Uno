@@ -11,7 +11,6 @@ namespace Uno
 
         public static bool Over;
 
-        private static bool _firstGame = true;
         public static bool Started { get; private set; }
 
 
@@ -80,8 +79,6 @@ namespace Uno
             GameData.PlayerScore = GameData.OpponentScore = 0;
 
             Started = true; //the game has begun
-
-            _firstGame = false; //this is not the first game
 
             Over = false; // game not finished
         }
