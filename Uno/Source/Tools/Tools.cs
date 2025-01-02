@@ -132,10 +132,10 @@ namespace Uno
             Logger.FuncExit("Tools.CalculateCardRegions");
         }
 
-        public static Card GetBiggestCard(Cards cards)
+        public static Card[] GetBiggestCard(Cards cards)
         {
             if (cards == null || cards.Count == 0)
-                return null;
+                return new Card[0];
 
             Card biggestCard = cards[0];
 
@@ -147,7 +147,7 @@ namespace Uno
                 }
             }
 
-            return biggestCard;
+            return new[] { biggestCard };
         }
 
         public static Random GetRandomObject()

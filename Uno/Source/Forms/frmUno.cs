@@ -41,7 +41,10 @@ namespace Uno
         {
             if (Game.Started && !Game.Over)
             {
+                tableLayoutPanel.Enabled = false;
                 Logic.Play(sender, e);
+                Application.DoEvents();
+                tableLayoutPanel.Enabled = true;
             }
         }
 

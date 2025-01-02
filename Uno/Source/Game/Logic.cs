@@ -24,13 +24,13 @@ namespace Uno
             }
         }
 
-        private static Card NextCardToThrow(Cards cards)
+        private static Card[] NextCardToThrow(Cards cards)
         {
             Logger.FuncInit("Logic.nextCardToThrow");
-            Card nextMoveCard = null;
 
-            var topCard = GameData.OpenCards.LastCard();
-            if (topCard != null)
+            var topCards = GameData.OpenCards.LastCard();
+
+            foreach(var topCard in topCards)
             {
                 var sameColor = new Cards();
                 var sameNumber = new Cards();
@@ -62,7 +62,7 @@ namespace Uno
                     //if same colors are there
                     if (sameColor.Count > 0)
                     {
-                        nextMoveCard = Tools.GetBiggestCard(sameColor);
+                        return Tools.GetBiggestCard(sameColor);
                     }
                     else
                     {
@@ -72,20 +72,20 @@ namespace Uno
                             // even then play the wild (for minimal score)
                             if (wilds.Count > 0)
                             {
-                                nextMoveCard = Tools.GetBiggestCard(wilds);
+                                return Tools.GetBiggestCard(wilds);
                             }
                             else //if there are no wilds, play the number
                             {
                                 //choose assembly random number card
                                 var rand = Tools.GetRandomObject();
-                                nextMoveCard = sameNumber[rand.Next(sameNumber.Count)];
+                                return new[] { sameNumber[rand.Next(sameNumber.Count)] };
                             }
                         }
                         else //there were no colours and no same numbers,
                         // we have to choose from the wild cards
                         {
                             if (wilds.Count > 0)
-                                nextMoveCard = Tools.GetBiggestCard(wilds);
+                                return Tools.GetBiggestCard(wilds);
                         }
                     }
                 }
@@ -93,13 +93,12 @@ namespace Uno
                 {
                     //for simplicity now,
                     //lets play the biggest card available to opponent.
-                    nextMoveCard = Tools.GetBiggestCard(cards);
+                    return Tools.GetBiggestCard(cards);
                 }
-
             }
 
             Logger.FuncExit("Logic.nextCardToThrow");
-            return nextMoveCard;
+            return new Card[0];
         }
 
         public static void CheckIfAddCardRequired(Card card)
@@ -189,7 +188,7 @@ namespace Uno
         {
             Logger.FuncInit("Logic.moveOpponent");
             var nextCard = NextCardToThrow(GameData.Opponnent.Cards);
-            if (nextCard == null) //no valid card with opponent, must pick from pile.
+            if (nextCard.Length == 0) //no valid card with opponent, must pick from pile.
             {
                 if (_numberOfDrawnCards <= 0) //if no card has been picked from stock yet...
                 {
@@ -202,22 +201,22 @@ namespace Uno
             }
             else //there is assembly valid card!!
             {
-                PutDownOpponentCard(nextCard);
+                PutDownOpponentCard(nextCard[0]);
 
                 //where should I put it???
                 CheckOpponentWin();
 
                 //play continuously?
-                if (nextCard.Number > UnoCards.Nine && nextCard.Number <= UnoCards.DrawFour)
+                if (nextCard[0].Number > UnoCards.Nine && nextCard[0].Number <= UnoCards.DrawFour)
                 {
-                    CheckIfAddCardRequired(nextCard);
+                    CheckIfAddCardRequired(nextCard[0]);
 
-                    if (nextCard.Number >= UnoCards.WildCard && nextCard.Number <= UnoCards.DrawFour)
+                    if (nextCard[0].Number >= UnoCards.WildCard && nextCard[0].Number <= UnoCards.DrawFour)
                     {
                         OpponentSelectsNewColor();
                     }
 
-                    if (nextCard.Number != UnoCards.WildCard)
+                    if (nextCard[0].Number != UnoCards.WildCard)
                     {
                         _numberOfDrawnCards = 0; //reset it, bcoz player can pick the card again.
 
@@ -427,22 +426,20 @@ namespace Uno
 
         private static bool CanThrow(Card card)
         {
-            var valid = false;
+            var topCards = GameData.OpenCards.LastCard();
 
-            var topCard = GameData.OpenCards.LastCard();
-
-            if (topCard != null)
+            foreach(var topCard in topCards)
             {
                 if (GameData.RunningColor == UnoColours.NoColor ||
                     GameData.RunningColor == card.Color
                     || topCard.Number == card.Number
                     || card.Color == UnoColours.NoColor)
                 {
-                    valid = true;
+                    return true;
                 }
             }
 
-            return valid;
+            return false;
         }
 
         private static void PutDownCardOfPlayer(Card nextCard)

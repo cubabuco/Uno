@@ -40,13 +40,13 @@ namespace Uno
             }
         }
 
-        public Card LastCard()
+        public Card[] LastCard()
         {
             if (Count > 0)
             {
-                return (Card)(base[Count - 1]);
+                return new[] { (Card)(base[Count - 1]) };
             }
-            return null;
+            return new Card[0];
         }
 
     }
