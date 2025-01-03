@@ -112,8 +112,8 @@ namespace Uno
 
         private void linkMail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var msg = "mailto:cnayan@gmail.com?subject=Uno%20" + AssemblyVersion + "%20Related";
-            Process.Start(msg);
+            //var msg = "mailto:cnayan@gmail.com?subject=Uno%20" + AssemblyVersion + "%20Related";
+            //Process.Start(msg);
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Uno
 
         public static bool Over;
 
-        private static bool _firstGame = true;
         public static bool Started { get; private set; }
 
 
@@ -71,7 +70,7 @@ namespace Uno
 
         private static void ClearUp()
         {
-            GameData.Deck.Clear();
+            //GameData.Deck.Clear();
             GameData.OpenCards.Clear();
 
             GameData.Player.Clear();
@@ -81,14 +80,12 @@ namespace Uno
 
             Started = true; //the game has begun
 
-            _firstGame = false; //this is not the first game
-
             Over = false; // game not finished
         }
 
         private static void Deal()
         {
-            GameData.Deck.CreateDeck();
+            //GameData.Deck.CreateDeck();
             GameData.Deck.Shuffle();
         }
 

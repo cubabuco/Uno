@@ -20,6 +20,19 @@ namespace Uno
             {
                 components.Dispose();
             }
+
+            tableLayoutPanel1.Dispose();
+            btnBlue.Dispose();
+            btnYellow.Dispose();
+            btnRed.Dispose();
+            btnGreen.Dispose();
+
+            tableLayoutPanel1 = null;
+            btnBlue = null;
+            btnYellow = null;
+            btnRed = null;
+            btnGreen = null;
+
             base.Dispose(disposing);
         }
 

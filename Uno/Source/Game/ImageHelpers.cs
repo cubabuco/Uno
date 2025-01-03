@@ -15,7 +15,7 @@ namespace Uno
             _assemblyCache = new MemoryCacheWrapper<Assembly>("Assembly.Uno");
         }
 
-        public Image LoadEmbededImage(string embededFile)
+        public Bitmap LoadEmbededImage(string embededFile)
         {
             Assembly assembly;
 
@@ -39,7 +39,7 @@ namespace Uno
             }
             else
             {
-                var img = Image.FromStream(stream);
+                var img = new Bitmap(stream);
                 return img;
             }
 

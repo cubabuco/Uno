@@ -10,9 +10,16 @@ namespace Uno
         private CacheItemPolicy _cacheItemPolicy;
         private bool _isDisposed;
 
-        public MemoryCacheWrapper(string name, NameValueCollection config = null)
+        public MemoryCacheWrapper(string name)
         {
-            _memoryCache = config != null ? new MemoryCache(name, config) : new MemoryCache(name);
+            _memoryCache = new MemoryCache(name);
+            _isDisposed = false;
+            CacheItemPolicy = new CacheItemPolicy { SlidingExpiration = new TimeSpan(1, 0, 0) };
+        }
+
+        public MemoryCacheWrapper(string name, NameValueCollection config)
+        {
+            _memoryCache = new MemoryCache(name, config);
             _isDisposed = false;
             CacheItemPolicy = new CacheItemPolicy { SlidingExpiration = new TimeSpan(1, 0, 0) };
         }

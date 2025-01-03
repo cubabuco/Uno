@@ -13,7 +13,11 @@ namespace Uno
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmUno(args));
+            
+            using (var form = new FrmUno(args))
+            {
+                Application.Run(form);
+            }
         }
     }
 }

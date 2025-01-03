@@ -41,7 +41,10 @@ namespace Uno
         {
             if (Game.Started && !Game.Over)
             {
+                tableLayoutPanel.Enabled = false;
                 Logic.Play(sender, e);
+                Application.DoEvents();
+                tableLayoutPanel.Enabled = true;
             }
         }
 
@@ -63,8 +66,10 @@ namespace Uno
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new FrmAbout();
-            frm.ShowDialog();
+            using (var frm = new FrmAbout())
+            {
+                frm.ShowDialog();
+            }
         }
 
         private void frmUno_Load(object sender, EventArgs e)

@@ -4,3 +4,6 @@
 
 /Uno/bin/Debug
 /Uno/obj/Debug
+/Uno.UnitTestts/obj
+/Uno.UnitTestts/bin/Debug/net6.0
+/.vs

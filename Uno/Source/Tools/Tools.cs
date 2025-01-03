@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Uno
 {
@@ -131,20 +132,22 @@ namespace Uno
             Logger.FuncExit("Tools.CalculateCardRegions");
         }
 
-        public static Card GetBiggestCard(Cards cards)
+        public static Card[] GetBiggestCard(Cards cards)
         {
-            Card biggestCard = null;
+            if (cards == null || cards.Count == 0)
+                return new Card[0];
 
-            var num = UnoCards.Back;
+            Card biggestCard = cards[0];
+
             foreach (Card card in cards)
             {
-                if (card.Number > num)
+                if (card.Number > biggestCard.Number)
                 {
                     biggestCard = card;
-                    num = card.Number;
                 }
             }
-            return biggestCard;
+
+            return new[] { biggestCard };
         }
 
         public static Random GetRandomObject()

@@ -20,6 +20,17 @@ namespace Uno
             {
                 components.Dispose();
             }
+
+            label1.Dispose();
+            txtPlayerName.Dispose();
+            btnStart.Dispose();
+            btnCancel.Dispose();
+
+            label1 = null;
+            txtPlayerName = null;
+            btnStart = null;
+            btnCancel = null;
+
             base.Dispose(disposing);
         }
 

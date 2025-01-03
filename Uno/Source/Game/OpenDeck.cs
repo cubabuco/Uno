@@ -4,6 +4,8 @@ namespace Uno
 {
     class OpenDeck : ArrayList
     {
+        public OpenDeck() : base(108) { }
+
         public void Add(Card c)
         {
             base.Add(c);
@@ -15,16 +17,6 @@ namespace Uno
             base.Clear();
             GameData.Form.lblColorRunning.Text = "";
         }
-
-        //public string GetDeck()
-        //{
-        //    string cards_debug = "";
-        //    foreach (Card card in this)
-        //    {
-        //        cards_debug += card.ToString() + "\r\n";
-        //    }
-        //    return cards_debug;
-        //}
 
         public Cards GetCards()
         {
@@ -48,13 +40,13 @@ namespace Uno
             }
         }
 
-        public Card LastCard()
+        public Card[] LastCard()
         {
             if (Count > 0)
             {
-                return (Card)(base[Count - 1]);
+                return new[] { (Card)(base[Count - 1]) };
             }
-            return null;
+            return new Card[0];
         }
 
     }
